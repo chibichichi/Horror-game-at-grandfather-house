@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class NewBehaviourScript1 : MonoBehaviour {
@@ -13,7 +13,6 @@ public class NewBehaviourScript1 : MonoBehaviour {
 	Rotate = 20f;
 	}
 
-	// Update is called once per frame
 	void Update ()
 	{
 	transform.Translate(moveSpeed*Input.GetAxis ("Horizontal")*Time.deltaTime,0f,moveSpeed*Input.GetAxis ("Vertical")*Time.deltaTime);
@@ -23,7 +22,7 @@ public class NewBehaviourScript1 : MonoBehaviour {
 
 		transform.RotateAround(Vector3.up, -RotateX);
 		transform.RotateAround(Vector3.right, -RotateY);
-
+    transform.rotation = Quaternion.Euler(0,transform.eulerAngles.y,0);
 }
 	void OnMouseDrag ()
 		{
