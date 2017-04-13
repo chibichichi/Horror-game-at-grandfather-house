@@ -23,8 +23,14 @@ public class NewBehaviourScript1 : MonoBehaviour {
 		transform.RotateAround(Vector3.up, -RotateX);
 		transform.RotateAround(Vector3.right, -RotateY);
     transform.rotation = Quaternion.Euler(0,transform.eulerAngles.y,0);
-}
-	void OnMouseDrag ()
-		{
 	}
+	/*
+void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("item"))
+		{
+			other.gameObject.SetActive(false);
+		}
+	}
+*/
 }
