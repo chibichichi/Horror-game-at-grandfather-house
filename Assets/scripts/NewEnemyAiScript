@@ -1,0 +1,58 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class NewEnemyAiScript : MonoBehaviour {
+
+public float movePower = 10f;
+
+Animator animator;
+Vertor3 movement;
+int movementFLag = 0;
+
+  void Start () {
+  animator = GameObject.GetComponetInChildren<Animator> ();
+}
+
+  void FixedUpdate () {
+  Move ();
+}
+
+  void Move () {
+  Vector3 moveVelocity = Vector3.zero;
+
+  if (movementFlag == 1); {
+    moveVelocity = vector3.left;
+    transform.localScale = new Vector3 (1, 1, 1);
+  }
+  else if(movementFlag == 2){
+    moveVelocity = Vector3.right;
+    transform.localScale = new Vector3 (-1, 1, 1);
+  }
+
+  transform.position += moveVelocity * movePower * Tiem.deltaTime;
+  }
+}
+
+IEnumerator ChangeMovement() {
+  movementFlag = Random.Range (0, 3);
+
+  if (movementFlag == 0)
+    animator.SetBool ("grounded", false);
+  else
+    animator.SetBool ("grounded", true);
+
+  yield return new WaitForSeconds(3f);
+
+  StartCoroutine("ChangeMovement");
+}
+
+void OnTriggerEnter () {
+  if (creatureType == 0)
+    return;
+
+  if (other.GameObject.tag == "Player") {
+    traceTarget = other.GameObject;
+
+    StopCoroutine ("ChangeMovement");
+  }
+}
