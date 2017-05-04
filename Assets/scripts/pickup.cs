@@ -36,7 +36,7 @@ GameObject i;
 		 	i = Instantiate(inventoryIcons[1]);
 		 	i.transform.SetParent(inventoryPanel.transform);
 		 }
-		 else if(collision.gameObject.tag == "something")
+		 else if(collision.gameObject.tag == "crowbar")
 		 {
 		 	i = Instantiate(inventoryIcons[2]);
 		 	i.transform.SetParent(inventoryPanel.transform);
