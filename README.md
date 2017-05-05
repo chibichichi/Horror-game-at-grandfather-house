@@ -53,4 +53,4 @@ You have to open with Unity to testing this game!
 
 MIT
 
-![image-1](https://pbs.twimg.com/media/C49cXDfVMAANz0e.jpg)
+![image-1](http://wallpaper-gallery.net/images/happy-image/happy-image-7.jpg)
