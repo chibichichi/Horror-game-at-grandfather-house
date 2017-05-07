@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEditor;
 
 public class NewBehaviourScript1 : MonoBehaviour {
 
 	public float moveSpeed;
 	public float Rotate;
-	// Use this for initialization
+	public bool isKey;
+
 	void Start ()
   {
 		print ("hi");
-	moveSpeed = 3f;
+	moveSpeed = 5f;
 	Rotate = 20f;
 	}
 
@@ -24,13 +26,26 @@ public class NewBehaviourScript1 : MonoBehaviour {
 		transform.RotateAround(Vector3.right, -RotateY);
     transform.rotation = Quaternion.Euler(0,transform.eulerAngles.y,0);
 	}
-	/*
+
 void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag("item"))
+		if (other.gameObject.CompareTag("key"))
 		{
-			other.gameObject.SetActive(false);
+			isKey = true;
 		}
 	}
-*/
+void OnColliderEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("door"))
+		{
+			if(isKey)
+			{
+				gameObject.SetActive(false);
+			}
+			else
+			{
+				gameObject.SetActive(true);
+			}
+		}
+	}
 }
